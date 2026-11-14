@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stock Wall</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="bar">
+    <div class="brand">Stock Wall</div>
+
+    <div class="controls">
+      <label>Range
+        <select id="range">
+          <option value="1M">1M</option>
+          <option value="3M">3M</option>
+          <option value="6M" selected>6M</option>
+          <option value="1Y">1Y</option>
+          <option value="2Y">2Y</option>
+          <option value="3Y">3Y</option>
+        </select>
+      </label>
+      <label>Per screen
+        <select id="perScreen">
+          <option>12</option>
+          <option>16</option>
+          <option selected>20</option>
+          <option>24</option>
+          <option>30</option>
+          <option>36</option>
+          <option>48</option>
+        </select>
+      </label>
+      <label>Sort
+        <select id="sort">
+          <option value="list">List order</option>
+          <option value="bottom">Nearest bottom first</option>
+          <option value="top">Nearest top first</option>
+          <option value="gain">Best % change</option>
+          <option value="loss">Worst % change</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="pager">
+      <button id="prev" title="Previous screen (←)">‹</button>
+      <span id="pageInfo">–</span>
+      <button id="next" title="Next screen (→)">›</button>
+      <button id="reload" title="Refetch this screen (R)">↻</button>
+    </div>
+
+    <div class="legend">
+      <span><i class="sw sw-line"></i>Close</span>
+      <span><i class="sw sw-sma"></i>20-day avg</span>
+      <span><i class="sw sw-zone"></i>Position in range: 0% = lowest close, 100% = highest close</span>
+    </div>
+  </header>
+
+  <main id="grid" class="grid" aria-live="polite"></main>
+  <div id="status" class="status" hidden></div>
+
+  <div id="detail" class="detail" hidden>
+    <div class="detail-card" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+      <div class="detail-head">
+        <div>
+          <div id="detailTitle" class="detail-title"></div>
+          <div id="detailSub" class="detail-sub"></div>
+        </div>
+        <div id="detailReadout" class="detail-readout"></div>
+        <button id="detailClose" class="detail-close" title="Close (Esc)">✕</button>
+      </div>
+      <canvas id="detailCanvas"></canvas>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

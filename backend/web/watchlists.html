@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stock Watchlists</title>
+  <meta name="description" content="Small hand-picked stock watchlists, read at a glance.">
+  <link rel="stylesheet" href="/watchlists.css">
+</head>
+<body>
+  <div class="wrap">
+
+    <header class="top">
+      <div class="brand">
+        <span class="mark" aria-hidden="true"></span>
+        <h1>Stock Watchlists</h1>
+        <div class="picker">
+          <label class="sr" for="picker">Choose a watchlist</label>
+          <select id="picker" disabled></select>
+        </div>
+      </div>
+      <p class="tagline">
+        Hand-picked lists of at most <strong>35 stocks</strong>, each one read once a day.
+        Pick a list above to see it on its own.
+      </p>
+      <p class="ask">
+        <a id="requestLink" href="#">Request a list</a>
+        <span class="ask-note">anyone can ask for one &mdash; email the symbols and it gets added here.</span>
+      </p>
+    </header>
+
+    <section id="stats" class="stats" hidden>
+      <div class="stat s1"><span class="k">Symbols</span><strong id="statCount">&mdash;</strong></div>
+      <div class="stat s2"><span class="k">Up today</span><strong id="statUp">&mdash;</strong></div>
+      <div class="stat s3"><span class="k">Down today</span><strong id="statDown">&mdash;</strong></div>
+    </section>
+
+    <p id="status" class="status" aria-live="polite"></p>
+
+    <main class="panel">
+      <div class="panel-head">
+        <h2 id="listName">Loading&hellip;</h2>
+        <span id="listMeta" class="meta"></span>
+      </div>
+      <div id="notes" class="notes"></div>
+      <ul id="rows" class="rows"></ul>
+    </main>
+
+    <footer class="foot">
+      <p>Prices and trend come from Twelve Data, fetched once a day for each symbol. Not investment advice.</p>
+      <p>Lists are curated by hand. <a id="requestLink2" href="#">Ask for one</a> and it shows up in the dropdown.</p>
+    </footer>
+
+  </div>
+
+  <script src="/watchlists.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+# Secrets — never commit real keys. See backend/.env.example for the shape.
+.env
+*.env
+
+# Build output
+backend/tmp/
+*.exe
+*.test
+*.out
+
+# Runtime data
+backend/cache/
+mongo-data/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
